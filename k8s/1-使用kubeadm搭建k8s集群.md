@@ -42,8 +42,11 @@ docker ps
 ## 下载kubeadm, kubelet, kubectl (以kubeadm=1.13.1 为准)
 - Step1: 替换下载源 
 ``` bash
+apt-get update && apt-get install -y apt-transport-https
+curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
 sudo vim /etc/apt/source.list.d/kubernetes.list
-sudo apt-get install kubeadm=1.13.1-00 kubectl=1.13.1-00 kubelet=1.13.1-00
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+apt-get update
 ```
  - Step2: 下载依赖项 
  ``` bash
